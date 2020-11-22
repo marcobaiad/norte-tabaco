@@ -94,10 +94,10 @@ export default function Panel() {
         setdatosShow(sortdatos);
     }
 
-    const sortNombreSeller = () => {
-        let sortdatos = [...userDatos].sort((a, b) => (a.sellerName > b.sellerName ? 1 : a.sellerName < b.sellerName ? -1 : 0))
+    const sortMonto = () => {
+        let sortdatos = [...userDatos].sort((a, b) => (a.quantityQoutas > b.quantityQoutas ? 1 : a.quantityQoutas < b.quantityQoutas ? -1 : 0))
         if (sortdatos[0] === datosShow[0])
-            sortdatos = [...userDatos].sort((b, a) => (a.sellerName > b.sellerName ? 1 : a.sellerName < b.sellerName ? -1 : 0))
+            sortdatos = [...userDatos].sort((b, a) => (a.quantityQoutas > b.quantityQoutas ? 1 : a.quantityQoutas < b.quantityQoutas ? -1 : 0))
         setdatosShow(sortdatos);
     }
 
@@ -114,6 +114,13 @@ export default function Panel() {
                 return (a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
             })
         setdatosShow(sortdatos);
+    }
+
+    const sortNombreSeller = () => {
+        let sortdatos = [...datosShow].sort((a, b) => (a.fullname > b.fullname ? 1 : a.fullname < b.fullname ? -1 : 0))
+        if (sortdatos[0] === userDatos[0])
+            sortdatos = [...datosShow].sort((b, a) => (a.fullname > b.fullname ? 1 : a.fullname < b.fullname ? -1 : 0))
+        setdatosShow(sortdatos)
     }
 
     // Sort's Table Sellers
@@ -357,7 +364,7 @@ export default function Panel() {
                                                 <input className="form-control" onChange={parameterSalesHandler} name="amountApproved" onKeyUp={enterSearch} placeholder='Venta...' />
                                             </div>
                                         </th>
-                                        <th className="py-0 position-sticky px-1" onClick={sortNombre}>
+                                        <th className="py-0 position-sticky px-1" onClick={sortMonto}>
                                             <p className="text-center mb-2" >Monto Cuotas</p>
 
                                         </th>

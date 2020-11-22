@@ -210,7 +210,7 @@ const SellerModal = ({ getDatos }) => {
                     <label htmlFor="montoPorCuota">Monto por cuota *</label>
                     <input className="form-control"
                       id="montoPorCuota"
-                      name="feeAmount"
+                      name="quantityQoutas"
                       type="text"
                       onKeyPress={OnlyNumber}
                       onChange={actualizarState}

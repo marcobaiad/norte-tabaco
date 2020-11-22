@@ -79,7 +79,7 @@ export default function RegSeller({ datos, onChangeHandler, tablasChange, getDat
                                                 </div>
                                                 <div className="col text-center">
                                                     <label htmlFor="cuotas">Tipo Venta</label>
-                                                    <input type="text" id="cuotas" className="form-control text-center" placeholder="Número de Cuotas" name="creditLine" onChange={onChangeHandler} value={datos.creditLine} />
+                                                    <input type="text" id="cuotas" className="form-control text-center" placeholder="Tipo de Credito" name="creditLine" onChange={onChangeHandler} value={datos.creditLine} />
                                                 </div>
                                             </div>
                                             <div className="form-group row">
@@ -89,13 +89,13 @@ export default function RegSeller({ datos, onChangeHandler, tablasChange, getDat
                                                 </div>
                                                 <div className="col text-center">
                                                     <label htmlFor="mcuotas">Numero cuotas</label>
-                                                    <input type="text" id="mcuotas" className="form-control text-center" placeholder="Monto de Cuotas" name="feeAmount" onChange={onChangeHandler} value={datos.feeAmount} />
+                                                    <input type="text" id="mcuotas" className="form-control text-center" placeholder="N° de Cuotas" name="quantityQoutas" onChange={onChangeHandler} value={datos.quantityQoutas} />
                                                 </div>
                                             </div>
                                             <div className="form-group row" style={{width: "93%"}}>
                                                 <div className="col text-center">
                                                     <label htmlFor="monto">Monto Cuota</label>
-                                                    <input type="text" id="monto" className="form-control text-center" placeholder="Número de Teléfono" name="quotaAmount" onChange={onChangeHandler} value={datos.quotaAmount} />
+                                                    <input type="text" id="monto" className="form-control text-center" placeholder="Monto de Cuotas" name="quotaAmount" onChange={onChangeHandler} value={datos.quotaAmount} />
                                                 </div>
                                                 <div className="col text-center">
                                                     <label htmlFor="enable">Habilitado</label>
