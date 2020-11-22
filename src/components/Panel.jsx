@@ -213,6 +213,8 @@ export default function Panel() {
         }
     }
 
+    console.log(datosShow);
+
     // Fin Paginate
 
     const onClickHandler = (datoFila) => {
