@@ -95,9 +95,9 @@ export default function Panel() {
     }
 
     const sortMonto = () => {
-        let sortdatos = [...userDatos].sort((a, b) => (a.quantityQoutas > b.quantityQoutas ? 1 : a.quantityQoutas < b.quantityQoutas ? -1 : 0))
+        let sortdatos = [...userDatos].sort((a, b) => (a.quantityQuotas > b.quantityQuotas ? 1 : a.quantityQuotas < b.quantityQuotas ? -1 : 0))
         if (sortdatos[0] === datosShow[0])
-            sortdatos = [...userDatos].sort((b, a) => (a.quantityQoutas > b.quantityQoutas ? 1 : a.quantityQoutas < b.quantityQoutas ? -1 : 0))
+            sortdatos = [...userDatos].sort((b, a) => (a.quantityQuotas > b.quantityQuotas ? 1 : a.quantityQuotas < b.quantityQuotas ? -1 : 0))
         setdatosShow(sortdatos);
     }
 
