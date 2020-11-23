@@ -89,7 +89,7 @@ export default function RegSeller({ datos, onChangeHandler, tablasChange, getDat
                                                 </div>
                                                 <div className="col text-center">
                                                     <label htmlFor="mcuotas">Numero cuotas</label>
-                                                    <input type="text" id="mcuotas" className="form-control text-center" placeholder="N° de Cuotas" name="quantityQuotas" onChange={onChangeHandler} value={datos.quantityQoutas} />
+                                                    <input type="text" id="mcuotas" className="form-control text-center" placeholder="N° de Cuotas" name="quantityQuotas" onChange={onChangeHandler} value={datos.quantityQuotas} />
                                                 </div>
                                             </div>
                                             <div className="form-group row" style={{width: "93%"}}>
