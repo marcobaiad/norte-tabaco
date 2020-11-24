@@ -58,13 +58,13 @@ function Paginator({ datosRowsSales, datosRowsSellers, montosTotalesShow, datosS
 
     return (
         <div className="row mx-0 justify-content-around">
-            <select onChange={(e) => setChangeN(parseInt(e.target.value))} className="custom-select-sm order-2">
+            <select onChange={(e) => setChangeN(parseInt(e.target.value))} className="custom-select-sm order-2 order-md-1">
                 <option value="20">20</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
                 <option value={tablasChange ? datosRowsSales.totalDocs : datosShow.totalDocs}>Todo</option>
             </select>
-            <nav aria-label="..." className="order-1">
+            <nav aria-label="..." className="order-1 order-md-2">
                 <ul className="pagination pagination-sm">
                     <li>
                         <span onClick={() => page == 1 ? '' : handlePaginate(1)} role="button" tabIndex="0" className="page-link">&le;&le;</span>
@@ -94,7 +94,7 @@ function Paginator({ datosRowsSales, datosRowsSellers, montosTotalesShow, datosS
                     </li>
                 </ul>
             </nav>
-            <div className="order-3 order-md-3">
+            <div className="order-3">
                 <Download datosShow={datosShow} montosTotalesShow={montosTotalesShow} tablasChange={tablasChange} />
             </div>
         </div>
@@ -116,7 +116,7 @@ class Download extends React.Component {
                                 <ExcelColumn label="DNI" value="dniClient" />
                                 <ExcelColumn label="N° Celular" value="celphoneClient" />
                                 <ExcelColumn label="Monto Aprobado" value="amountApproved" />
-                                <ExcelColumn label="Cuotas" value="feeAmount" />
+                                <ExcelColumn label="Cuotas" value="quantityQuotas" />
                                 <ExcelColumn label="Monto Cuotas" value="quotaAmount" />
                                 <ExcelColumn label="Cliente Nuevo" value="newClient" />
                                 <ExcelColumn label="Detalle" value="saleDetail" />

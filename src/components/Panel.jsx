@@ -300,7 +300,7 @@ export default function Panel() {
         }
     }
 
-    console.log();
+    console.log(month);
 
     return (
         <div className="my-5 container">

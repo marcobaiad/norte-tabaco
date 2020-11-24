@@ -63,7 +63,7 @@ const SellerPage = () => {
         <p className="card-text">Tipo de Operación: {sale.typeOperation}</p>
         <p className="card-text">Linea Crédito: {sale.creditLine}</p>
         <p className="card-text">Monto aprobado: {sale.amountApproved}</p>
-        <p className="card-text">Cantidad de cuotas: {sale.feeAmount}</p>
+        <p className="card-text">Cantidad de cuotas: {sale.quantityQuotas}</p>
         <p className="card-text">Monto de la cuota: {sale.quotaAmount}</p>
         <p className="card-text">Detalles de la Operación: {sale.saleDetail}</p>
       </div>

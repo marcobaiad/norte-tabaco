@@ -141,7 +141,7 @@ const AdminSaleModal = ({ datos, getDatos }) => {
                                     </div>
                                     <div className="form-group col-sm-6 ">
                                         <label htmlFor="inputStateTypeClient">Tipo de Cliente *</label>
-                                        <select id="inputStateTypeClient" className="form-control" onChange={actualizarState} name="TypeClient">
+                                        <select id="inputStateTypeClient" className="form-control" onChange={actualizarState} name="typeClient">
                                             <option >Elegir...</option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
