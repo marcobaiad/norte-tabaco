@@ -1,8 +1,7 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 
-function RowsTable({ datosShow, onClickHandler, deleteSaleHandler, datosSellerShow, montosTotalesShow, tablasChange, getDatos }) {
-
+function RowsTable({ datosShow, onClickHandler, deleteSaleHandler, datosSellerShow, tablasChange, getDatos }) {
 
     const [obs, setObs] = React.useState('')
 

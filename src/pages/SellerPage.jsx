@@ -26,8 +26,6 @@ const SellerPage = () => {
     console.log(actual);
     let ventas = sales.filter(m => { return m.exactMonth.includes(actual) });
     setSaleShow(ventas);
-    console.log(ventas);
-
   }
 
 
@@ -59,12 +57,12 @@ const SellerPage = () => {
       </div>
       <div className="card-body contacto py-2">
         <p className="card-text">DNI: {sale.dniClient}</p>
-        <p className="card-text">Numero Celular: {sale.celphoneClient}</p>
+        <p className="card-text">Número Celular: {sale.celphoneClient}</p>
         <p className="card-text">Tipo de Operación: {sale.typeOperation}</p>
-        <p className="card-text">Linea Crédito: {sale.creditLine}</p>
+        <p className="card-text">Línea Crédito: {sale.creditLine}</p>
         <p className="card-text">Monto aprobado: {sale.amountApproved}</p>
         <p className="card-text">Cantidad de cuotas: {sale.quantityQuotas}</p>
-        <p className="card-text">Monto de la cuota: {sale.quotaAmount}</p>
+        <p className="card-text">Monto de la cuota: ${sale.quotaAmount}</p>
         <p className="card-text">Detalles de la Operación: {sale.saleDetail}</p>
       </div>
     </div>

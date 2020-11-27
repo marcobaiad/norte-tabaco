@@ -61,7 +61,7 @@ const Login = () => {
               className="form-control"
               type="text"
               name='user'
-              maxLength='10'
+              // maxLength='10'
               placeholder="Usuario"
               minLength="4"
               autoFocus

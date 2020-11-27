@@ -54,7 +54,6 @@ export default function Panel() {
             })
             setMontosTotales(amountTotals.data);
             setMontosTotalesShow(amountTotals.data);
-
             // TablesSales
             setSellerDatos(sellers.data.docs);
             setdatosSellerShow(sellers.data.docs);
@@ -240,6 +239,7 @@ export default function Panel() {
 
     const annual = []
     const month = []
+    const sumSales = []
 
     const mes = new Date().toLocaleString('default', { month: 'long' })
     const año = new Date().toLocaleString('default', { year: 'numeric' })
@@ -259,48 +259,72 @@ export default function Panel() {
         const monthAmmountsOctubre = monto.octubre;
         const monthAmmountsNoviembre = monto.noviembre;
         const monthAmmountsDiciembre = monto.diciembre;
+
+        const ventasEnero = monto.ventasEnero;
+        const ventasFebrero = monto.ventasFebrero;
+        const ventasMarzo = monto.ventasMarzo;
+        const ventasAbril = monto.ventasAbril;
+        const ventasMayo = monto.ventasMayo;
+        const ventasJunio = monto.ventasJunio;
+        const ventasJulio = monto.ventasJulio;
+        const ventasAgosto = monto.ventasAgosto;
+        const ventasSeptiembre = monto.ventasSeptiembre;
+        const ventasOctubre = monto.ventasOctubre;
+        const ventasNoviembre = monto.ventasNoviembre;
+        const ventasDiciembre = monto.ventasDiciembre;
+
         if (año == monto.year) {
             annual.push(annualsAmmounts);
         }
         if (mes == "enero" && monto.year == año) {
-            month.push(monthAmmountsEnero)
+            month.push(monthAmmountsEnero);
+            sumSales.push(ventasEnero);
         }
         if (mes == "febrero" && monto.year == año) {
-            month.push(monthAmmountsFebrero)
+            month.push(monthAmmountsFebrero);
+            sumSales.push(ventasFebrero);
         }
         if (mes == "marzo" && monto.year == año) {
-            month.push(monthAmmountsMarzo)
+            month.push(monthAmmountsMarzo);
+            sumSales.push(ventasMarzo);
         }
         if (mes == "abril" && monto.year == año) {
-            month.push(monthAmmountsAbril)
+            month.push(monthAmmountsAbril);
+            sumSales.push(ventasAbril);
         }
         if (mes == "mayo" && monto.year == año) {
-            month.push(monthAmmountsMayo)
+            month.push(monthAmmountsMayo);
+            sumSales.push(ventasMayo);
         }
         if (mes == "junio" && monto.year == año) {
-            month.push(monthAmmountsJunio)
+            month.push(monthAmmountsJunio);
+            sumSales.push(ventasJunio);
         }
         if (mes == "julio" && monto.year == año) {
-            month.push(monthAmmountsJulio)
+            month.push(monthAmmountsJulio);
+            sumSales.push(ventasJulio);
         }
         if (mes == "agosto" && monto.year == año) {
-            month.push(monthAmmountsAgosto)
+            month.push(monthAmmountsAgosto);
+            sumSales.push(ventasAgosto);
         }
         if (mes == "septiembre" && monto.year == año) {
-            month.push(monthAmmountsSeptiembre)
+            month.push(monthAmmountsSeptiembre);
+            sumSales.push(ventasSeptiembre);
         }
         if (mes == "octubre" && monto.year == año) {
-            month.push(monthAmmountsOctubre)
+            month.push(monthAmmountsOctubre);
+            sumSales.push(ventasOctubre);
         }
         if (mes == "noviembre" && monto.year == año) {
-            month.push(monthAmmountsNoviembre)
+            month.push(monthAmmountsNoviembre);
+            sumSales.push(ventasNoviembre);
         }
         if (mes == "diciembre" && monto.year == año) {
-            month.push(monthAmmountsDiciembre)
+            month.push(monthAmmountsDiciembre);
+            sumSales.push(ventasDiciembre);
         }
     }
-
-    console.log(month);
 
     return (
         <div className="my-5 container">
@@ -432,18 +456,20 @@ export default function Panel() {
                                 <span className="sr-only text-center">Cargando...</span>
                             </div>
                         }>
-                            <RowsTable tablasChange={tablasChange} datosShow={datosShow} montosTotalesShow={montosTotalesShow} datosSellerShow={datosSellerShow} onClickHandler={onClickHandler} deleteSaleHandler={deleteSaleHandler} getDatos={getDatos} />
+                            <RowsTable tablasChange={tablasChange} datosShow={datosShow} datosSellerShow={datosSellerShow} onClickHandler={onClickHandler} deleteSaleHandler={deleteSaleHandler} getDatos={getDatos} />
                         </Suspense>
                     </tbody>
                 </table>
             </div>
             <Pagination datosRowsSales={datosRowsSales} datosRowsSellers={datosRowsSellers} datosShow={datosShow} montosTotalesShow={montosTotalesShow} tablasChange={tablasChange} handlePaginate={handlePaginate} handlePaginateNext={handlePaginateNext} handlePaginatePrev={handlePaginatePrev} page={page} handleChangeRows={handleChangeRows} />
             <div className="mt-4">
-                <p className="mb-0">Total Ventas {mes}: {month.length}</p>
+                <p className="mb-0">Total Ventas {mes}: 45 </p>
                 <p className="mb-0">Monto ventas {mes}: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(month.reduce((a, b) => a + b, 0))}</strong></p>
-                <p className="mb-0">Promedio ventas {mes}: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(month.reduce((a, b) => a + b, 0)/month.length)}</strong></p>
+                <p className="mb-0">Promedio ventas {mes}: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(month.reduce((a, b) => a + b, 0)/45)}</strong></p>
                 <p className="mb-0">Suma Total Anual: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(annual.reduce((a, b) => a + b, 0))}</strong></p>
             </div>
         </div>
+
+// {sumSales.reduce((a, b) => a + b, 0)}
     );
 }
