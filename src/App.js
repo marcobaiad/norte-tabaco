@@ -10,6 +10,11 @@ import SellerPage from './pages/SellerPage';
 function App() {
   return (
     <>
+      <div className="d-none">
+        <a href="/dvcs"></a>
+        <a href="/panel"></a>
+        <a href="/seller"></a>
+      </div>
       <Route component={Navbar} />
       <Switch>
         <Route path="/panel" exact={true} component={Panel} />
