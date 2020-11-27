@@ -10,6 +10,8 @@ const AdminSaleModal = ({ datos, getDatos }) => {
     const [sellerForm, setSellerForm] = React.useState({});
     const cerrarModal = React.useRef();
     const resetForm = React.useRef();
+    const [enviando, setEnviando] = React.useState(false);
+
 
     const optionsNameSellers = () => {
         let opciones = dataName.map(o => <option key={o._id} value={o.fullname}>{o.fullname}</option>)
@@ -34,21 +36,21 @@ const AdminSaleModal = ({ datos, getDatos }) => {
 
     const crearNuevaVenta = async (e) => {
         e.preventDefault();
+        setEnviando(true);
         if (pdf.type !== "application/pdf") {
             Swal.fire({
                 icon: 'error',
                 title: 'Solo se admite archivos formato PDF',
                 showConfirmButton: false,
                 timer: 1500
-            })  
+            })
             return
         }
         try {
 
             const NewSales = await clienteAxios.post('api/v1/regsales', sellerForm)
-            console.log('newsales ->', NewSales.data.id)
             const formData = new FormData()
-            formData.append('myFile', pdf) 
+            formData.append('myFile', pdf)
             await clienteAxios.post(`api/v1/regsales/${NewSales.data.id}/sendpdf`, formData, {
                 headers: {
                     'content-type': 'multipart/form-data'
@@ -63,6 +65,7 @@ const AdminSaleModal = ({ datos, getDatos }) => {
             resetForm.current.reset();
             cerrarModal.current.click();
             getDatos();
+            setEnviando(false);
         } catch (error) {
             console.log(error);
         }
@@ -95,6 +98,11 @@ const AdminSaleModal = ({ datos, getDatos }) => {
             });
             return false
         }
+    }
+
+    const comprovePasteHandler = (e) => {
+        isNaN(e.clipboardData.getData('Text')) && alert('No es un número')
+        e.preventDefault()
     }
 
     return (
@@ -168,6 +176,7 @@ const AdminSaleModal = ({ datos, getDatos }) => {
                                             maxLength="8"
                                             minLength="7"
                                             type="text"
+                                            onPaste={comprovePasteHandler}
                                             onKeyPress={OnlyNumber}
                                             onChange={actualizarState}
                                             required
@@ -182,6 +191,7 @@ const AdminSaleModal = ({ datos, getDatos }) => {
                                             name="celphoneClient"
                                             type="text"
                                             onKeyPress={OnlyNumber}
+                                            onPaste={comprovePasteHandler}
                                             onChange={actualizarState}
                                             required
                                         />
@@ -192,6 +202,7 @@ const AdminSaleModal = ({ datos, getDatos }) => {
                                             id="montoAprobado"
                                             name="amountApproved"
                                             type="text"
+                                            onPaste={comprovePasteHandler}
                                             onKeyPress={OnlyNumber}
                                             onChange={actualizarState}
                                             required
@@ -219,6 +230,7 @@ const AdminSaleModal = ({ datos, getDatos }) => {
                                             id="montoPorCuota"
                                             name="quotaAmount"
                                             type="text"
+                                            onPaste={comprovePasteHandler}
                                             onKeyPress={OnlyNumber}
                                             onChange={actualizarState}
                                             required
@@ -271,10 +283,18 @@ const AdminSaleModal = ({ datos, getDatos }) => {
                                     >
                                         Cerrar
                                     </button>
-                                    <button
-                                        type="submit"
-                                        className="btn btn-primary"
-                                    >Enviar</button>
+                                    <div>
+                                        {
+                                            enviando ?
+                                                <div class="spinner-border text-secondary" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                                :
+                                                <button
+                                                    type="submit"
+                                                    className="btn btn-primary"
+                                                >Enviar</button>}
+                                    </div>
                                 </div>
                             </form>
                         </div>

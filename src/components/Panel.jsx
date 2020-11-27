@@ -58,7 +58,6 @@ export default function Panel() {
             setSellerDatos(sellers.data.docs);
             setdatosSellerShow(sellers.data.docs);
             setDatosRowsSellers(sellers.data);
-
             //TablesSales    
             setdatosShow(ventas.data.docs);
             setUserDatos(ventas.data.docs);
@@ -211,8 +210,6 @@ export default function Panel() {
             getDatos();
         }
     }
-
-    console.log(datosShow);
 
     // Fin Paginate
 
@@ -463,13 +460,11 @@ export default function Panel() {
             </div>
             <Pagination datosRowsSales={datosRowsSales} datosRowsSellers={datosRowsSellers} datosShow={datosShow} montosTotalesShow={montosTotalesShow} tablasChange={tablasChange} handlePaginate={handlePaginate} handlePaginateNext={handlePaginateNext} handlePaginatePrev={handlePaginatePrev} page={page} handleChangeRows={handleChangeRows} />
             <div className="mt-4">
-                <p className="mb-0">Total Ventas {mes}: 45 </p>
+                <p className="mb-0">Total Ventas {mes}: {sumSales.reduce((a, b) => a + b, 0)}</p>
                 <p className="mb-0">Monto ventas {mes}: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(month.reduce((a, b) => a + b, 0))}</strong></p>
                 <p className="mb-0">Promedio ventas {mes}: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(month.reduce((a, b) => a + b, 0)/45)}</strong></p>
                 <p className="mb-0">Suma Total Anual: <strong>{new Intl.NumberFormat('es-AR', { currency: 'ARS', style: 'currency' }).format(annual.reduce((a, b) => a + b, 0))}</strong></p>
             </div>
         </div>
-
-// {sumSales.reduce((a, b) => a + b, 0)}
     );
 }

@@ -5,7 +5,9 @@ import Swal from 'sweetalert2';
 const SellerModal = ({ getDatos }) => {
 
   const [pdf, setPdf] = useState(null)
-  const [sellerForm, setSellerForm] = useState('')
+  const [sellerForm, setSellerForm] = useState('');
+  const [enviando, setEnviando] = useState(false);
+
   const cerrarModal = useRef();
   const resetForm = useRef();
 
@@ -20,6 +22,7 @@ const SellerModal = ({ getDatos }) => {
 
   const crearNuevaVenta = async (e) => {
     e.preventDefault();
+    setEnviando(true);
     if (pdf.type !== "application/pdf") {
       Swal.fire({
         icon: 'error',
@@ -49,7 +52,7 @@ const SellerModal = ({ getDatos }) => {
       resetForm.current.reset();
       cerrarModal.current.click();
       getDatos();
-
+      setEnviando(false);
     } catch (error) {
       console.log(error);
     }
@@ -81,6 +84,11 @@ const SellerModal = ({ getDatos }) => {
       });
       return false
     }
+  }
+
+  const comprovePasteHandler = (e) => {
+    isNaN(e.clipboardData.getData('Text')) && alert('No es un número')
+    e.preventDefault()
   }
 
   return (
@@ -161,6 +169,7 @@ const SellerModal = ({ getDatos }) => {
                       name="dniClient"
                       maxLength="8"
                       type="text"
+                      onPaste={comprovePasteHandler}
                       onKeyPress={OnlyNumber}
                       onChange={actualizarState}
                       required
@@ -174,6 +183,7 @@ const SellerModal = ({ getDatos }) => {
                       id="celularCLiente"
                       name="celphoneClient"
                       type="text"
+                      onPaste={comprovePasteHandler}
                       onKeyPress={OnlyNumber}
                       onChange={actualizarState}
                       required
@@ -185,6 +195,7 @@ const SellerModal = ({ getDatos }) => {
                       id="montoAprobado"
                       name="amountApproved"
                       type="number"
+                      onPaste={comprovePasteHandler}
                       onKeyPress={OnlyNumber}
                       onChange={actualizarState}
                       required
@@ -212,6 +223,7 @@ const SellerModal = ({ getDatos }) => {
                       id="montoPorCuota"
                       name="quotaAmount"
                       type="text"
+                      onPaste={comprovePasteHandler}
                       onKeyPress={OnlyNumber}
                       onChange={actualizarState}
                       required
@@ -253,10 +265,18 @@ const SellerModal = ({ getDatos }) => {
                     ref={cerrarModal}
                   >Cerrar
               </button>
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                  >Enviar</button>
+                  <div>
+                    {
+                      enviando ?
+                        <div class="spinner-border text-secondary" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                        :
+                        <button
+                          type="submit"
+                          className="btn btn-primary"
+                        >Enviar</button>}
+                  </div>
                 </div>
               </form>
             </div>
