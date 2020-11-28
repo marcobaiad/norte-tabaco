@@ -1,26 +1,27 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-
-//componentes
-import Navbar from './components/Navbar';
-import Login from './components/Login'
-import Panel from './components/Panel';
-import SellerPage from './pages/SellerPage';
+import { Switch, Route } from 'react-router-dom';
+import Footer from './components/Footer';
+import NavBar from './components/Navbar';
+import Admin from './pages/Admin';
+import CigarrillosPage from './pages/CigarrillosPage';
+import FuegosAPage from './pages/FuegosAPage';
 
 function App() {
+
   return (
     <>
       <div className="d-none">
-        <a href="/dvcs"></a>
-        <a href="/panel"></a>
-        <a href="/seller"></a>
+        <a href="/fuegos-artificiales"></a>
+        <a href="/admin"></a>
+        <a href="/"></a>
       </div>
-      <Route component={Navbar} />
+      <Route component={NavBar} />
       <Switch>
-        <Route path="/panel" exact={true} component={Panel} />
-        <Route exact path="/seller" component={SellerPage} />
-        <Route path="/" exact={true} component={Login} />
+        <Route exact={true} path="/fuegos-artificiales" component={FuegosAPage} />
+        <Route exact={true} path="/admin" component={Admin} />
+        <Route exact={true} path="/" component={CigarrillosPage} />
       </Switch>
+      <Route component={Footer} />
     </>
   );
 }
