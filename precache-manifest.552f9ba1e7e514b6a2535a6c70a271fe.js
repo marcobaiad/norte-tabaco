@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd2cd2a689e9b50caaf77e49f76104c4",
+    "revision": "bac3f886f24566c3e9b4d75a54a88db2",
     "url": "/norte-tabaco/index.html"
   },
   {
-    "revision": "59472eba905f9e87d6af",
+    "revision": "1b47abbd1a47a6cde9e5",
     "url": "/norte-tabaco/static/css/main.d2c36580.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/norte-tabaco/static/js/2.ccb3b60b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "59472eba905f9e87d6af",
-    "url": "/norte-tabaco/static/js/main.1ecb0e7e.chunk.js"
+    "revision": "1b47abbd1a47a6cde9e5",
+    "url": "/norte-tabaco/static/js/main.cff12a47.chunk.js"
   },
   {
     "revision": "3f779ef4c151e5d1f425",

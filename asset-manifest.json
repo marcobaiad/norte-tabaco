@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/norte-tabaco/static/css/main.d2c36580.chunk.css",
-    "main.js": "/norte-tabaco/static/js/main.1ecb0e7e.chunk.js",
-    "main.js.map": "/norte-tabaco/static/js/main.1ecb0e7e.chunk.js.map",
+    "main.js": "/norte-tabaco/static/js/main.cff12a47.chunk.js",
+    "main.js.map": "/norte-tabaco/static/js/main.cff12a47.chunk.js.map",
     "runtime-main.js": "/norte-tabaco/static/js/runtime-main.61437bdf.js",
     "runtime-main.js.map": "/norte-tabaco/static/js/runtime-main.61437bdf.js.map",
     "static/js/2.ccb3b60b.chunk.js": "/norte-tabaco/static/js/2.ccb3b60b.chunk.js",
     "static/js/2.ccb3b60b.chunk.js.map": "/norte-tabaco/static/js/2.ccb3b60b.chunk.js.map",
     "index.html": "/norte-tabaco/index.html",
-    "precache-manifest.30e313041d2e6a33cff6e6694daf1c18.js": "/norte-tabaco/precache-manifest.30e313041d2e6a33cff6e6694daf1c18.js",
+    "precache-manifest.552f9ba1e7e514b6a2535a6c70a271fe.js": "/norte-tabaco/precache-manifest.552f9ba1e7e514b6a2535a6c70a271fe.js",
     "service-worker.js": "/norte-tabaco/service-worker.js",
     "static/css/main.d2c36580.chunk.css.map": "/norte-tabaco/static/css/main.d2c36580.chunk.css.map",
     "static/js/2.ccb3b60b.chunk.js.LICENSE.txt": "/norte-tabaco/static/js/2.ccb3b60b.chunk.js.LICENSE.txt",
@@ -66,6 +66,6 @@
     "static/js/runtime-main.61437bdf.js",
     "static/js/2.ccb3b60b.chunk.js",
     "static/css/main.d2c36580.chunk.css",
-    "static/js/main.1ecb0e7e.chunk.js"
+    "static/js/main.cff12a47.chunk.js"
   ]
 }
