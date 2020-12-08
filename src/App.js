@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import PrivateRoutes from './components/PrivateRoutes';
 import Footer from './components/Footer';
 import NavBar from './components/Navbar';
 import Admin from './pages/Admin';
@@ -17,8 +18,8 @@ function App() {
       </div>
       <Route component={NavBar} />
       <Switch>
-        <Route exact={true} path="/tabaco" component={CigarrillosPage} />
-        <Route exact={true} path="/admin" component={Admin} />
+        <PrivateRoutes exact={true} path="/admin" component={Admin} />
+        <Route exact={true} path="/cigarrillos" component={CigarrillosPage} />
         <Route exact={true} path="/" component={FuegosAPage} />
       </Switch>
       <Route component={Footer} />

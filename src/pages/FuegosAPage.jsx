@@ -37,8 +37,8 @@ const FuegosAPage = () => {
 
   console.log(modalDatos);
 
-  const cardsFuegoArtificial = dataCards.FuegosArtificiales.map((f, i) =>
-    <Link onClick={() => modal(f, i)} className="col mb-4 text-dark" type="button" data-toggle="modal" data-target={`#modal${i}`}>
+  const cardsFuegoArtificial = dataCards.FuegosArtificiales.map(f =>
+    <Link onClick={() => modal(f)} className="col mb-4 text-dark" type="button" data-toggle="modal" data-target={`#modal`}>
       <div className="card h-100 ">
         <img src={f.img} className="card-img-top img-fluid" alt={f.title} />
         <div className="card-body">
@@ -56,7 +56,7 @@ const FuegosAPage = () => {
       <div className="row row-cols-1 row-cols-md-3 row-cols-sm-2 justify-content-center pt-4 m-0">
         {cardsFuegoArtificial}
       </div>
-      <div className="modal fade " id={`modal${modalDatos && modalDatos.indice}`} tabindice="-1" aria-hidden="true">
+      <div className="modal fade " id={`modal`} tabindice="-1" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-">
           <div className="modal-content">
             <div className="modal-header">
@@ -66,23 +66,24 @@ const FuegosAPage = () => {
               </button>
             </div>
             <div className="modal-body">
-              <img src={modalDatos && modalDatos.datos.img.default} className="card-img-top" alt="..." />
+              <img src={modalDatos && modalDatos.datos.img} className="card-img-top" alt="..." />
               <div className="row pt-2">
                 <div className="col-12 col-sm-3 ">
                   <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a className="nav-link active text-center" id={`v-pills-home-tab${modalDatos && modalDatos.indice}`} data-toggle="pill" data-target={`#v-pills-home${modalDatos && modalDatos.indice}`} role="tab" aria-controls={`v-pills-home${modalDatos && modalDatos.indice}`} aria-selected="true" >Info</a>
-                    <a className="nav-link text-center" id={`v-pills-profile-tab${modalDatos && modalDatos.indice}`} data-toggle="pill" data-target={`#v-pills-profile${modalDatos && modalDatos.indice}`} role="tab" aria-controls={`v-pills-profile${modalDatos && modalDatos.indice}`} aria-selected="false">Contacto</a>
+                    <a className="nav-link active text-center" id={`v-pills-home-tab`} data-toggle="pill" data-target={`#v-pills-home`} role="tab" aria-controls={`v-pills-home`} aria-selected="true" >Info</a>
+                    <a className="nav-link text-center" id={`v-pills-profile-tab`} data-toggle="pill" data-target={`#v-pills-profile`} role="tab" aria-controls={`v-pills-profile`} aria-selected="false">Contacto</a>
                   </div>
                 </div>
 
                 <div className="col-12 col-sm-9">
                   <div className="tab-content" id="v-pills-tabContent">
-                    <div className="tab-pane fade show active" id={`v-pills-home${modalDatos && modalDatos.indice}`} role="tabpanel" aria-labelledby={`v-pills-home-tab${modalDatos && modalDatos.indice}`}>
+                    <div className="tab-pane fade show active" id={`v-pills-home`} role="tabpanel" aria-labelledby={`v-pills-home-tab`}>
                       <p>{modalDatos && modalDatos.datos.descriptionModal}
                       </p>
                     </div>
 
-                    <div className="tab-pane fade" id={`v-pills-profile${modalDatos && modalDatos.indice}`} role="tabpanel" aria-labelledby={`v-pills-profile-tab${modalDatos && modalDatos.indice}`}>
+                    <div className="tab-pane fade" id={`v-pills-profile`} role="tabpanel" aria-labelledby={`v-pills-profile-tab`}>
+                      Contactanos al: 381 590 6814 <br/> o dejanos tu mensaje en el siguiente formulario
                       <form className="pt-2" ref={formContact}>
                         <div className="form-row">
                           <div className="form-group col-md-6">

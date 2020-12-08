@@ -12,8 +12,8 @@ const CigarrillosPage = () => {
 
   const formContact = React.useRef();
 
-  const modal = (datos, indice) => {
-    setModalDatos({ ...modalDatos, datos, indice });
+  const modal = (datos) => {
+    setModalDatos({ ...modalDatos, datos });
     setDataMessage({ ...dataMessage, product: datos.marca });
   }
 
@@ -37,8 +37,8 @@ const CigarrillosPage = () => {
 
   const CardsCigarrillo = () => {
     return (
-      dataCard.cigarros.map((c, i) =>
-        <Link onClick={() => modal(c, i)} className="col mb-4 text-dark" type="button" data-toggle="modal" data-target={`#modal${i}`}>
+      dataCard.cigarros.map(c =>
+        <Link onClick={() => modal(c)} className="col mb-4 text-dark" type="button" data-toggle="modal" data-target={`#modal`}>
           <div className="card h-100 ">
             <img src={c.img} className="card-img-top img-fluid" alt={c.marca} />
             <div className="card-body">
@@ -60,7 +60,7 @@ const CigarrillosPage = () => {
         <div className="row row-cols-1 row-cols-md-3 row-cols-sm-2 justify-content-center pt-4 m-0">
           {cardCigarros}
         </div>
-        <div className="modal fade " id={`modal${modalDatos && modalDatos.indice}`} tabindice="-1" aria-hidden="true">
+        <div className="modal fade " id={`modal`} tabindice="-1" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered modal-">
             <div className="modal-content">
               <div className="modal-header">
@@ -70,23 +70,23 @@ const CigarrillosPage = () => {
                 </button>
               </div>
               <div className="modal-body">
-                <img src={modalDatos && modalDatos.datos.img.default} className="card-img-top" alt="..." />
+                <img src={modalDatos && modalDatos.datos.img} className="card-img-top" alt="..." />
                 <div className="row pt-2">
                   <div className="col-12 col-sm-3 ">
                     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                      <a className="nav-link active text-center" id={`v-pills-home-tab${modalDatos && modalDatos.indice}`} data-toggle="pill" data-target={`#v-pills-home${modalDatos && modalDatos.indice}`} role="tab" aria-controls={`v-pills-home${modalDatos && modalDatos.indice}`} aria-selected="true" >Info</a>
-                      <a className="nav-link text-center" id={`v-pills-profile-tab${modalDatos && modalDatos.indice}`} data-toggle="pill" data-target={`#v-pills-profile${modalDatos && modalDatos.indice}`} role="tab" aria-controls={`v-pills-profile${modalDatos && modalDatos.indice}`} aria-selected="false">Contacto</a>
+                      <a className="nav-link active text-center" id={`v-pills-home-tab`} data-toggle="pill" data-target={`#v-pills-home`} role="tab" aria-controls={`v-pills-home`} aria-selected="true" >Info</a>
+                      <a className="nav-link text-center" id={`v-pills-profile-tab`} data-toggle="pill" data-target={`#v-pills-profile`} role="tab" aria-controls={`v-pills-profile`} aria-selected="false">Contacto</a>
                     </div>
                   </div>
 
                   <div className="col-12 col-sm-9">
                     <div className="tab-content" id="v-pills-tabContent">
-                      <div className="tab-pane fade show active" id={`v-pills-home${modalDatos && modalDatos.indice}`} role="tabpanel" aria-labelledby={`v-pills-home-tab${modalDatos && modalDatos.indice}`}>
+                      <div className="tab-pane fade show active" id={`v-pills-home`} role="tabpanel" aria-labelledby={`v-pills-home-tab`}>
                         <p>{modalDatos && modalDatos.datos.descriptionModal}
                         </p>
                       </div>
 
-                      <div className="tab-pane fade" id={`v-pills-profile${modalDatos && modalDatos.indice}`} role="tabpanel" aria-labelledby={`v-pills-profile-tab${modalDatos && modalDatos.indice}`}>
+                      <div className="tab-pane fade" id={`v-pills-profile`} role="tabpanel" aria-labelledby={`v-pills-profile-tab`}>
                         <form className="pt-2" ref={formContact}>
                           <div className="form-row">
                             <div className="form-group col-md-6">

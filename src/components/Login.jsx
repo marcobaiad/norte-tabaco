@@ -18,10 +18,10 @@ export default function Login({ btnLogout }) {
                 timer: 1000,
                 showConfirmButton: false
             })
-            history.push('/admin');
             cerrarModal.current.click();
             btnLogout()
             localStorage.setItem('token', login.data.token);
+            history.push('/admin');
         } catch (error) {
             const { response } = error
             Swal.fire({

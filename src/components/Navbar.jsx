@@ -11,6 +11,7 @@ const NavBar = () => {
   const history = useHistory();
   const [btnLog, setBtnLog] = React.useState('Iniciar');
   const [product, setProduct] = React.useState('Cigarrillos');
+  const logeado = localStorage.getItem('token');
 
   const logOutHanlder = async () => {
     try {
@@ -27,6 +28,10 @@ const NavBar = () => {
     setBtnLog('Cerrar')
   }
 
+  React.useEffect(() => {
+    logeado && btnLogout();
+  }, [logeado])
+
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-light bg-dark text-white">
@@ -37,10 +42,10 @@ const NavBar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <Link className="nav-link text-white" to="/" onClick={() => setProduct('Cigarrillos')}>Cigarros <span className="sr-only">(current)</span></Link>
+              <Link className="nav-link text-white" to="/cigarrillos" onClick={() => setProduct('Cigarrillos')}>Cigarros <span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/fuegos-artificiales" onClick={() => setProduct('Fuegos Artificiales')}>Fuegos Artificiales</Link>
+              <Link className="nav-link text-white" to="/" onClick={() => setProduct('Fuegos Artificiales')}>Fuegos Artificiales</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-white"  data-toggle="modal" data-target={btnLog == 'Iniciar' && "#loginModal"} onClick={btnLog == 'Cerrar' && logOutHanlder}>{btnLog} Sesión</Link>
@@ -49,9 +54,13 @@ const NavBar = () => {
         </div>
       </nav>
       <Login btnLogout={btnLogout}  />
-      <h1 className="text-center pt-3">Norte Tabaco</h1>
-      <hr />
-      <h3 className="text-center pt-4 ">Somos lideres en venta mayorista de {product} en todo el país. Déjanos tu consulta por cualquier producto y mejoramos cualquier precio que hayas escuchado. También recuerda que puedes dejarnos tus datos de contacto para que nosotros nos contactemos contigo.</h3>
+      { window.location.pathname !== '/admin' &&
+      <> 
+        <h1 className="text-center pt-3">Norte Tabaco</h1>
+        <hr />
+        <h3 className="text-center pt-4 ">Somos lideres en venta mayorista de {product} en todo el país. Déjanos tu consulta por cualquier producto y mejoramos cualquier precio que hayas escuchado. También recuerda que puedes dejarnos tus datos de contacto para que nosotros nos contactemos contigo.</h3>
+      </>
+      }
     </>
   )
 }
