@@ -17,9 +17,9 @@ function App() {
       </div>
       <Route component={NavBar} />
       <Switch>
-        <Route exact={true} path="/fuegos-artificiales" component={FuegosAPage} />
+        <Route exact={true} path="/tabaco" component={CigarrillosPage} />
         <Route exact={true} path="/admin" component={Admin} />
-        <Route exact={true} path="/" component={CigarrillosPage} />
+        <Route exact={true} path="/" component={FuegosAPage} />
       </Switch>
       <Route component={Footer} />
     </>
