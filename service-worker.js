@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/norte-tabaco/precache-manifest.552f9ba1e7e514b6a2535a6c70a271fe.js"
+  "/norte-tabaco/precache-manifest.4c55a790724b1ee16b99ff05a2590cae.js"
 );
 
 self.addEventListener('message', (event) => {
